@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.mapper.ElaMapper">
+    
+    <resultMap id="elaInfoMap" type="com.entity.ElaInfo">
+        <id column="id" property="id" />
+        <result column="make_time" property="makeTime"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="delete_flag" property="deleteFlag"/>
+
+        <result column="user_name" property="userName"/>
+        <result column="ela_name" property="elaName"/>
+        <result column="ela_content" property="elaContent"/>
+        <result column="ela_url" property="elaUrl"/>
+        <result column="ela_hash" property="elaHash"/>
+    </resultMap>
+
+    <select id="insertElaInfo" parameterType="com.entity.ElaInfo">
+        INSERT INTO ela_info(id, make_time, modify_time, delete_flag, user_name, ela_name, ela_content, ela_url, ela_hash)
+        VALUES (
+          #{id}, #{makeTime}, #{modifyTime}, #{deleteFlag}, #{userName}, #{elaName}, #{elaContent}, #{elaUrl}, #{elaHash}
+        )
+    </select>
+
+    <select id="selectElaInfoList" resultMap="elaInfoMap">
+        SELECT *
+        FROM ela_info
+        ORDER BY make_time desc
+    </select>
+
+    <select id="selectElaInfo" resultMap="elaInfoMap">
+        SELECT *
+        FROM ela_info
+        WHERE id = #{id}
+    </select>
+
+</mapper>
