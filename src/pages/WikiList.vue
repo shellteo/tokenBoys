@@ -4,39 +4,58 @@
       <el-input placeholder="请搜索你的词条" style="margin-right: 0;"></el-input>
       <el-button type="primary" icon="el-icon-search">搜索词条</el-button>
     </div>
-    <el-table :data="list" stripe style="width: 100%">
-      <el-table-column prop="name" label="名称">
+    <el-table :data="list" stripe style="width: 100%" v-loading="loading">
+      <el-table-column prop="elaName" label="名称">
       </el-table-column>
-      <el-table-column prop="hash" label="hash">
+      <el-table-column prop="elaHash" label="hash">
+      </el-table-column>
+      <el-table-column label="操作" width="100px">
+        <template slot-scope="scope">
+          <el-button @click="toDetail(scope.row.id)" type="text" size="small">查看</el-button>
+        </template>
       </el-table-column>
     </el-table>
   </div>
 </template>
 
 <script>
+import {getList} from "../apis";
+
 export default {
   name: 'WikiList',
   data () {
     return {
       list: [
         {
-          name: '比特币',
-          hash: '2cb931df4e46611edddff3b062bb1a73'
-        },
-        {
-          name: 'EOS币',
-          hash: '89ec6345e66e06c3c98e5926e7d80bc1'
+          name: '问渠百科',
+          hash: 'dac0bfbdd7aebb16e447894e54080380'
         },
         {
           name: '亦来云',
           hash: '17332e406ead75537e1cef51334ed7c5'
         },
         {
-          name: '橡链',
-          hash: 'ad78bf2ee7717d59605ebe7144346759'
+          name: '铂链',
+          hash: 'fdb94f57faf7ea38014b40de4fd3b644'
         }
-      ]
+      ],
+      loading: false
     }
+  },
+  methods: {
+    toDetail(id) {
+      this.$router.push({
+        path: `/detail?id=${id}`
+      })
+    }
+  },
+  mounted() {
+    this.loading = true;
+    getList().then((res) => {
+      this.loading = false;
+      this.list = res.data;
+      console.log(res);
+    })
   }
 }
 </script>

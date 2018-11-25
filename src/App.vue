@@ -41,4 +41,11 @@ export default {
   #app {
     height: 100%;
   }
+  .ql-container.ql-snow {
+    border:none;
+  }
+  .ql-toolbar.ql-snow {
+    border-left: none;
+    border-right: none;
+  }
 </style>

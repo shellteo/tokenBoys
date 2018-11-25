@@ -1,6 +1,9 @@
 <template>
   <div class="Header">
-    <span @click="toHome" style="cursor: pointer;">问渠百科</span>
+    <div class="logoTitleContainer" @click="toHome" style="cursor: pointer;">
+      <img src="@/assets/logo.png" alt="" class="logoImg">
+      <span>问渠百科</span>
+    </div>
     <div class="avatarBox">
       <!--<img src="@/assets/avatar.jpg" alt="" class="avatarImg">
       <i class="el-icon-arrow-down"></i>-->
@@ -46,8 +49,13 @@ export default {
     align-items: center;
     justify-content: center;
   }
-  .avatarImg {
-    width: 25px;
+  .logoImg {
+    width: 40px;
     padding-right: 5px;
+  }
+  .logoTitleContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 </style>
