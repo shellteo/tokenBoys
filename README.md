@@ -9,3 +9,7 @@
 后台代码目录：/backEnd
 
 项目展示包括pdf介绍和项目视频演示，都在根目录。
+
+[项目pdf地址](https://myblog-images1.oss-cn-beijing.aliyuncs.com/tokenboys/%E9%97%AE%E6%B8%A0%E7%99%BE%E7%A7%91%20-%20TokenBoys.pdf)
+
+[项目视频演示地址](https://myblog-images1.oss-cn-beijing.aliyuncs.com/tokenboys/%E9%97%AE%E6%B8%A0%E7%99%BE%E7%A7%91-%E9%A6%96%E9%A1%B5%20-%20Google%20Chrome%202018_11_25%2014_18_50.mp4)
