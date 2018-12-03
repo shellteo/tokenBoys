@@ -8,7 +8,7 @@
             <div class="desc">
               <time datetime="2018-11-25">{{datetime}}</time>
             </div>
-            <div class="desc">hash: {{hash}}</div>
+            <div v-if="f !== 'p'" class="desc">hash: {{hash}}</div>
           </div>
         </div>
         <div v-html="content"></div>
@@ -38,7 +38,8 @@ export default {
       content: '',
       loading: false,
       datetime: '',
-      hash: ''
+      hash: '',
+      f: ''
     }
   },
   methods: {
@@ -46,6 +47,7 @@ export default {
   mounted() {
     this.loading = true;
     let f = this.$route.query.f;
+    this.f = f;
     if (f === 'p') {
       setTimeout(() => {
         this.loading = false;

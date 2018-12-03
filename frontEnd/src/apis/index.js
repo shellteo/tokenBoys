@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://192.168.17.100:8090/';
+const BASE_URL = 'http://172.20.10.11:8090/';
 const apis = {
   setContent: `${BASE_URL}ela/setElaInfo`,
   getDetail: `${BASE_URL}ela/getElaInfo`,
